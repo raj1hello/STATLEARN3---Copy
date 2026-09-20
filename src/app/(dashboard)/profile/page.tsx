@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import { Skeleton } from "@/components/ui/Skeleton";
+import { OrganizationJoinSection } from "@/components/profile/OrganizationJoinSection";
 import {
   User,
   Mail,
@@ -472,6 +473,11 @@ export default function ProfilePage() {
           </div>
         </Card>
       </form>
+
+      {/* Organization Join Section for Learners and Trainers */}
+      {(user?.role === "learner" || user?.role === "trainer") && (
+        <OrganizationJoinSection />
+      )}
     </div>
   );
 }

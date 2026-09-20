@@ -12,6 +12,16 @@ const UpdateProfileSchema = z.object({
   education: z.string().max(100).optional(),
   existingSkills: z.array(z.string().max(50)).optional(),
   careerGoal: z.string().max(300).optional(),
+  stream: z.string().max(100).optional(),
+  shareProfileWithOrganizations: z.boolean().optional(),
+  certifications: z.array(z.string().max(100)).optional(),
+  projects: z.array(
+    z.object({
+      title: z.string().max(150),
+      description: z.string().max(1000),
+      skills: z.array(z.string()).optional(),
+    })
+  ).optional(),
 });
 
 export async function GET(request: Request) {

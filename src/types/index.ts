@@ -231,6 +231,18 @@ export interface UserNote {
 // Trainer ↔ Learner Connections & Assignments (Stage 5)
 export type ConnectionStatus = "pending" | "accepted" | "rejected";
 
+export type OrganizationRequestStatus = "pending" | "approved" | "rejected";
+
+export interface OrganizationRequest {
+  _id?: ObjectId;
+  userId: ObjectId;
+  organizationId: ObjectId;
+  userRole: UserRole;
+  status: OrganizationRequestStatus;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 export interface Connection {
   _id?: ObjectId;
   trainerId: ObjectId;

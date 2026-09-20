@@ -163,6 +163,11 @@ const orgNavItems: NavItem[] = [
     href: "/organization/trainers",
     icon: GraduationCap,
   },
+  {
+    label: "Join Requests",
+    href: "/organization/requests",
+    icon: FileCheck2,
+  },
 ];
 
 // Admin / Education Department Portal navigation.

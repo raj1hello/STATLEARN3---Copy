@@ -236,6 +236,13 @@ export const organizationApi = {
   },
   getStudent: (id: string) => api.get<{ student: any; verifiedCompetencies: any[]; recentAssessments: any[] }>(`/api/organization/students/${id}`),
   listTrainers: () => api.get<{ trainers: any[]; total: number }>("/api/organization/trainers"),
+
+  // Organization Join/Request endpoints
+  search: (q: string) => api.get<{ organizations: any[] }>(`/api/organization/search?q=${encodeURIComponent(q)}`),
+  getMyRequestStatus: () => api.get<{ status: string; organization: any }>(`/api/organization/requests/me`),
+  join: (organizationId: string) => api.post(`/api/organization/requests`, { organizationId }),
+  getPendingRequests: () => api.get<{ requests: any[] }>(`/api/organization/requests`),
+  processRequest: (id: string, action: "approve" | "reject") => api.post(`/api/organization/requests/${id}`, { action }),
 };
 
 // AI Mock Interview API

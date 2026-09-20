@@ -21,6 +21,7 @@ import {
   Connection,
   Assignment,
   ParentLink,
+  OrganizationRequest,
 } from "@/types";
 
 export async function usersCol(): Promise<Collection<User>> {
@@ -121,4 +122,9 @@ export async function assignmentsCol(): Promise<Collection<Assignment>> {
 export async function parentLinksCol(): Promise<Collection<ParentLink>> {
   const db = await getDatabase();
   return db.collection<ParentLink>("parent_links");
+}
+
+export async function organizationRequestsCol(): Promise<Collection<OrganizationRequest>> {
+  const db = await getDatabase();
+  return db.collection<OrganizationRequest>("organization_requests");
 }
